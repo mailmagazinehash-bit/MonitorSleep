@@ -1,0 +1,16 @@
+{
+  "name": "monitorsleep",
+  "version": "1.0.0",
+  "description": "Put your monitor to sleep on Windows and macOS.",
+  "bin": {
+    "monitorsleep": "bin/monitorsleep.js"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mailmagazinehash-bit/MonitorSleep.git"
+  }
+}

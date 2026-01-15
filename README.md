@@ -8,14 +8,41 @@
 - Windows
 - macOS
 
+## インストール
+
+### npmで使う（Node.jsが必要）
+
+#### グローバルに使う
+
+```bash
+npm install -g git+https://github.com/mailmagazinehash-bit/MonitorSleep.git
+monitorsleep
+```
+
+#### プロジェクト内だけで使う
+
+```bash
+npm install git+https://github.com/mailmagazinehash-bit/MonitorSleep.git
+npx monitorsleep
+```
+
+### ダウンロードして使う
+
+1. GitHubのリポジトリで「Code」→「Download ZIP」
+2. ZIPを解凍
+3. OS別の使い方に従って実行
+
 ## フォルダ構成
 
 ```
 MonitorSleep/
+├── bin/
+│   └── monitorsleep.js    # npm用CLI
 ├── windows/
 │   └── MonitorSleep.bat   # PowerShell内蔵の実行用バッチファイル
 ├── macos/
 │   └── MonitorSleep.sh    # シェルスクリプト
+├── package.json
 └── README.md
 ```
 
@@ -67,7 +94,7 @@ MonitorSleep/
 
 - mac環境は動作テストができていませんので、利用は自己責任でお願いします。<br>
 （mac端末持ってないのです…すみません。）
-- Windowsで編集する場合はLF改行を維持（`.gitattributes`で`macos/MonitorSleep.sh`をLF固定）
+- Windowsで編集する場合はLF改行を維持（`.gitattributes`で`macos/MonitorSleep.sh`と`bin/monitorsleep.js`をLF固定）
 
 ---
 
@@ -81,14 +108,41 @@ No manual steps needed—just double-click the shortcut to instantly put your mo
 - Windows
 - macOS
 
+## Install
+
+### Use via npm (requires Node.js)
+
+#### Global install
+
+```bash
+npm install -g git+https://github.com/mailmagazinehash-bit/MonitorSleep.git
+monitorsleep
+```
+
+#### Local install
+
+```bash
+npm install git+https://github.com/mailmagazinehash-bit/MonitorSleep.git
+npx monitorsleep
+```
+
+### Download and run
+
+1. On GitHub, click "Code" -> "Download ZIP"
+2. Extract the ZIP file
+3. Follow the OS-specific usage below
+
 ## Folder Structure
 
 ```
 MonitorSleep/
+├── bin/
+│   └── monitorsleep.js    # npm CLI entry
 ├── windows/
 │   └── MonitorSleep.bat   # Executable batch file with embedded PowerShell
 ├── macos/
 │   └── MonitorSleep.sh    # Shell script
+├── package.json
 └── README.md
 ```
 
@@ -140,4 +194,4 @@ Uses the `pmset displaysleepnow` command to put the monitor to sleep. This utili
 
 - The macOS version has not been tested, so please use it at your own risk.<br>
   (I don't have a Mac... sorry.)
-- Line endings for `macos/MonitorSleep.sh` are pinned to LF via `.gitattributes` to avoid `pmset^M` issues.
+- Line endings for `macos/MonitorSleep.sh` and `bin/monitorsleep.js` are pinned to LF via `.gitattributes` to avoid `^M` issues.
