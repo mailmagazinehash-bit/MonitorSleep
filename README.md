@@ -13,8 +13,7 @@
 ```
 MonitorSleep/
 ├── windows/
-│   ├── MonitorSleep.ps1   # メインのPowerShellスクリプト
-│   └── MonitorSleep.bat   # 実行用バッチファイル
+│   └── MonitorSleep.bat   # PowerShell内蔵の実行用バッチファイル
 ├── macos/
 │   └── MonitorSleep.sh    # シェルスクリプト
 └── README.md
@@ -31,7 +30,7 @@ MonitorSleep/
 
 ### 仕組み
 
-Windows APIの`SendMessage`関数で`SC_MONITORPOWER`メッセージを送信し、モニターの電源を切る。Windowsの電源管理と同じメカニズムを使用。
+バッチ内のPowerShellからWindows APIの`SendMessage`関数で`SC_MONITORPOWER`メッセージを送信し、モニターの電源を切る。Windowsの電源管理と同じメカニズムを使用。
 
 ## macOS
 
@@ -68,6 +67,7 @@ Windows APIの`SendMessage`関数で`SC_MONITORPOWER`メッセージを送信し
 
 - mac環境は動作テストができていませんので、利用は自己責任でお願いします。<br>
 （mac端末持ってないのです…すみません。）
+- Windowsで編集する場合はLF改行を維持（`.gitattributes`で`macos/MonitorSleep.sh`をLF固定）
 
 ---
 
@@ -86,8 +86,7 @@ No manual steps needed—just double-click the shortcut to instantly put your mo
 ```
 MonitorSleep/
 ├── windows/
-│   ├── MonitorSleep.ps1   # Main PowerShell script
-│   └── MonitorSleep.bat   # Executable batch file
+│   └── MonitorSleep.bat   # Executable batch file with embedded PowerShell
 ├── macos/
 │   └── MonitorSleep.sh    # Shell script
 └── README.md
@@ -104,7 +103,7 @@ MonitorSleep/
 
 ### How It Works
 
-Uses the Windows API `SendMessage` function to send the `SC_MONITORPOWER` message, putting the monitor to sleep. This uses the same mechanism as Windows power management.
+Uses embedded PowerShell in the batch file to call the Windows API `SendMessage` function, sending the `SC_MONITORPOWER` message to put the monitor to sleep. This uses the same mechanism as Windows power management.
 
 ## macOS
 
@@ -141,3 +140,4 @@ Uses the `pmset displaysleepnow` command to put the monitor to sleep. This utili
 
 - The macOS version has not been tested, so please use it at your own risk.<br>
   (I don't have a Mac... sorry.)
+- Line endings for `macos/MonitorSleep.sh` are pinned to LF via `.gitattributes` to avoid `pmset^M` issues.
